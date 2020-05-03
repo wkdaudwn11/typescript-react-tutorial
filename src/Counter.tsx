@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+
+// Type 생성
+type Action = { type: "INCREASE" } | { type: "DECREASE" };
+
+const reducer = (state: number, action: Action): number => {
+  switch (action.type) {
+    case "INCREASE":
+      return state + 1;
+    case "DECREASE":
+      return state - 1;
+    default:
+      throw new Error("Unhandled action");
+  }
+};
 
 const Counter = () => {
-  // Generic으로 타입 표시. 생략해도 상관은 없음
-  const [count, setCount] = useState<number>(0);
-
-  // Generic을 사용하는 경우는 보통 null 일 수도 있고 아닐 수도 있는 경우에 많이 쓰임.
-  type Information = { name: string; description: string };
-  const [info, setInformation] = useState<Information | null>(null);
-
-  const onIncrease = () => setCount(count + 1);
-  const onDecrease = () => setCount(count - 1);
+  const [count, dispatch] = useReducer(reducer, 0);
+  const onIncrease = () => dispatch({ type: "INCREASE" });
+  const onDecrease = () => dispatch({ type: "DECREASE" });
 
   return (
     <div>
