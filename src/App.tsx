@@ -4,6 +4,7 @@ import Counter from "./Counter";
 import MyForm from "./MyForm";
 import ReducerSample from "./ReducerSample";
 import CounterContainer from "./containers/CounterContainer";
+import TodoApp from "./containers/TodoApp";
 
 function App() {
   const onClick = (name: string) => {
@@ -22,6 +23,9 @@ function App() {
       <hr />
       <h1>Redux - Counter</h1>
       <CounterContainer />
+      <hr />
+      <h1>Redux - Todo List</h1>
+      <TodoApp />
       <hr />
     </div>
   );
