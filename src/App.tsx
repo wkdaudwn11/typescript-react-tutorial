@@ -3,6 +3,7 @@ import Greetings from "./Greetings";
 import Counter from "./Counter";
 import MyForm from "./MyForm";
 import ReducerSample from "./ReducerSample";
+import CounterContainer from "./containers/CounterContainer";
 
 function App() {
   const onClick = (name: string) => {
@@ -17,6 +18,11 @@ function App() {
       <Counter />
       <MyForm onSubmit={onSubmit} />
       <ReducerSample />
+      <br />
+      <hr />
+      <h1>Redux - Counter</h1>
+      <CounterContainer />
+      <hr />
     </div>
   );
 }
